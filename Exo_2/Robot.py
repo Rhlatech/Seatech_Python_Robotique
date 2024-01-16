@@ -12,17 +12,12 @@ class Robot():
       Give your best code here ( •̀ ω •́ )✧
     """
   # Constructeur
-    def __init__(self, name):
+    def __init__(self, name, state = False, C_speed = 0, b_level = 0):
         self.name = name
-        #self.power = False
-        #self.current_speed = 0
-        #self.battery_level = 0
-
-  # Destructeur
-  #  def __del__(self): 
-  #      print("je suis le destructeur")
-  #      self.clear()
-  
+        self.power = state
+        self.current_speed = C_speed
+        self.battery_level = b_level
+ 
   
   ### Get/Set ###
 
@@ -89,7 +84,7 @@ class Robot():
          elif (self.power == True):
               return self.__states[1]
          
-  #Méthode qui va retourner toutes les info d'un robot sous format string
+    #Méthode qui va retourner toutes les info d'un robot sous format string
     def __str__(self):
         return "Nom du robot : {}, état Allumé  : {} / Current speed: {} / Battery level : {} / état robot : {} ".format(self.name, self.power, self.current_speed, self.battery_level, self.states)
 
@@ -104,3 +99,11 @@ class Robot():
     
     def stop(self):
          self.current_speed = 0
+     
+    ## Shutdown the robot
+    def shutdown(self):
+         self.power = False
+    
+    ## Launch running robot
+    def running(self):
+         self.power = True

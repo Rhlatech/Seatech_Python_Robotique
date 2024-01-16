@@ -1,4 +1,4 @@
-from exo1_starter_template import *
+from Robot import *
 
 
 
